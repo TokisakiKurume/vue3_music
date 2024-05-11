@@ -1,0 +1,135 @@
+{
+  "id": "4474607",
+  "name": "vue3自制music网站项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "111904",
+      "name": "五角星",
+      "font_class": "star",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "800879",
+      "name": "love",
+      "font_class": "love1",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "18170313",
+      "name": "心,心形,心脏,爱心,实心",
+      "font_class": "hear-full",
+      "unicode": "e99f",
+      "unicode_decimal": 59807
+    },
+    {
+      "icon_id": "18170314",
+      "name": "心,心形,心脏,爱心,实心",
+      "font_class": "hear",
+      "unicode": "e9a0",
+      "unicode_decimal": 59808
+    },
+    {
+      "icon_id": "22334251",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "33711678",
+      "name": "顺序播放",
+      "font_class": "shunxubofang",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "33711679",
+      "name": "单曲循环",
+      "font_class": "danquxunhuan",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "33711680",
+      "name": "列表循环",
+      "font_class": "liebiaoxunhuan",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "33711681",
+      "name": "随机播放",
+      "font_class": "suijibofang",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "29300651",
+      "name": "pause",
+      "font_class": "pause",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "29300656",
+      "name": "play",
+      "font_class": "play1",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "29300658",
+      "name": "play-previous",
+      "font_class": "play-previous",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "29300659",
+      "name": "play-next",
+      "font_class": "play-next",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "3889116",
+      "name": "love ",
+      "font_class": "love",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "663336",
+      "name": "down",
+      "font_class": "i-down",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "3889094",
+      "name": "add",
+      "font_class": "add",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "17976610",
+      "name": "icon-批量操作",
+      "font_class": "icon-piliangcaozuo",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "7008982",
+      "name": "play",
+      "font_class": "play",
+      "unicode": "e717",
+      "unicode_decimal": 59159
+    }
+  ]
+}
