@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useUserStore } from '@/stores'
 
-const baseURL = 'http://localhost:3000'
+// const baseURL = 'http://localhost:3000'
+const baseURL = 'http://122.152.215.30:3000'
 
 const instance = axios.create({
   // TODO 1. 基础地址，超时时间
