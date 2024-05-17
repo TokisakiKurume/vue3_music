@@ -663,8 +663,8 @@ body {
 
   .bottom {
     position: absolute;
-    height: 18%;
-    width: 100%;
+    height: 128.44px;
+    width: 1536px;
     bottom: 0;
     display: flex;
 

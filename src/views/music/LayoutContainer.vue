@@ -35,12 +35,12 @@ watch(
   --el-menu-active-color: rgb(49, 194, 124);
   --el-menu-hover-text-color: rgb(49, 194, 124);
   --el-menu-hover-bg-color: transparent;
-  width: 100%;
+  width: 1523.7px;
   height: 50px;
   border-bottom: none;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 0 auto;
   user-select: none;
 
   .el-menu-item {

@@ -267,7 +267,8 @@ isToken()
 
 <style lang="scss" scoped>
 .container {
-  width: 99.2vw;
+  width: 1523.7px;
+  margin: 0 auto;
 
   & > div {
     width: 100%;
@@ -344,7 +345,7 @@ isToken()
   }
 
   .ranking {
-    height: 100vh;
+    height: 713.6px;
     background-image: url('@/assets/cont/rank_bg.jpg');
     background-size: 100% 100%;
     display: flex;
@@ -458,7 +459,7 @@ isToken()
   }
 
   .hotSong {
-    height: 100vh;
+    height: 713.6px;
     display: flex;
     flex-direction: column;
 

@@ -187,7 +187,7 @@ getSheetData()
 
   .show {
     width: 70%;
-    height: 72vh;
+    height: 513.79px;
     padding: 0 15px 0;
     overflow: auto;
     position: absolute;

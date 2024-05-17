@@ -156,7 +156,8 @@ watch([() => data, () => pagination.current_page], async (val) => {
 
 <style lang="scss" scoped>
 .container {
-  width: 100%;
+  width: 1523.7px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
