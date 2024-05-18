@@ -35,7 +35,7 @@ watch(
   --el-menu-active-color: rgb(49, 194, 124);
   --el-menu-hover-text-color: rgb(49, 194, 124);
   --el-menu-hover-bg-color: transparent;
-  width: 1523.7px;
+  width: 1200px;
   height: 50px;
   border-bottom: none;
   align-items: center;

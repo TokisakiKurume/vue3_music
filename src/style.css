@@ -11,7 +11,8 @@ body {
 }
 
 #app {
-  width: 1523.7px;
+  width: 1515px;
+  margin: 0 auto;
 }
 
 body::-webkit-scrollbar {

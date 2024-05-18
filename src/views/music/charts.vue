@@ -172,8 +172,7 @@ const handleClick = (name) => {
 
 <style lang="scss" scoped>
 .container {
-  width: 1523.7px;
-  margin: auto;
+  width: 100%;
   padding-top: 50px;
   background-color: #fafafa;
   overflow: hidden;

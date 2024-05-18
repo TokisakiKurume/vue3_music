@@ -664,7 +664,7 @@ body {
   .bottom {
     position: absolute;
     height: 128.44px;
-    width: 1536px;
+    width: 1500px;
     bottom: 0;
     display: flex;
 

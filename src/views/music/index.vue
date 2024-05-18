@@ -267,8 +267,7 @@ isToken()
 
 <style lang="scss" scoped>
 .container {
-  width: 1523.7px;
-  margin: 0 auto;
+  width: 100%;
 
   & > div {
     width: 100%;
