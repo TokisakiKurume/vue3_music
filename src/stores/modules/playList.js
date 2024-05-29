@@ -12,7 +12,9 @@ export const usePlayListStore = defineStore(
     const addDataToTop = (id) => {
       if (Array.isArray(id)) {
         // 过滤出不在 playList 中的 id
-        playList.value = playList.value.filter((item) => !id.includes(item))
+        playList.value = playList.value.filter(
+          (item) => !id.includes(item)
+        )
         // 将不重复的 id 插入到 playList 的开头
         playList.value.unshift(...id)
       } else {
@@ -32,12 +34,20 @@ export const usePlayListStore = defineStore(
       playMode.value = newPlayMode
     }
 
+    // 播放音量
+    const volume = ref(50)
+    const setVolume = (newVolume) => {
+      volume.value = newVolume
+    }
+
     return {
       playList,
       setPlayList,
       addDataToTop,
       playMode,
-      setPlayMode
+      setPlayMode,
+      volume,
+      setVolume
     }
   },
   { persist: true, expires: '1d' }

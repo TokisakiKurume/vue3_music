@@ -37,10 +37,12 @@ const playList = ref([
   }
 ])
 const getPlayList = async () => {
-  const infoPromises = playListStore.playList.map(async (item) => {
-    const res = await musicGetLyrics(item)
-    return res.data.data
-  })
+  const infoPromises = playListStore.playList.map(
+    async (item) => {
+      const res = await musicGetLyrics(item)
+      return res.data.data
+    }
+  )
 
   const infosData = await Promise.all(infoPromises)
 
@@ -56,6 +58,15 @@ getPlayList()
 
 // 音频设置
 const audioPlayer = ref()
+const audioSound = ref(playListStore.volume || 50)
+nextTick(
+  () => (audioPlayer.value.volume = audioSound.value / 100)
+) // 默认音量
+const changeVolume = () => {
+  audioPlayer.value.volume = audioSound.value / 100
+  playListStore.setVolume(audioSound.value)
+}
+
 const playAudio = ref(null) // 当前播放的歌曲ID
 const musicPlay = ref(false) // 是否播放
 const currentTime = ref('0:00')
@@ -190,7 +201,9 @@ const setOffset = () => {
     PHeight,
     prevPHeight = doms.content.children[0].clientHeight / 2
   for (let i = 0; i <= indexP.value; i++) {
-    if (i !== 0) prevPHeight = doms.content.children[i - 1].clientHeight
+    if (i !== 0)
+      prevPHeight =
+        doms.content.children[i - 1].clientHeight
     PHeight = doms.content.children[i].clientHeight // 获取第 i 个 p 元素的高度
     h1 += PHeight // 将当前元素的高度加到累加值中
   }
@@ -222,7 +235,8 @@ watch(
   (newValue) => {
     // 图片路径
     imgUrl.value =
-      newValue.song_picSrc || `https://picsum.photos/200?${newValue.song_id}`
+      newValue.song_picSrc ||
+      `https://picsum.photos/200?${newValue.song_id}`
     // 歌曲路径
     songSrc.value = newValue.song_originSrc
     // 歌曲名称
@@ -253,7 +267,9 @@ const deleteSongId = async (ids) => {
   }
   // 从本地删除歌曲ID
   playListStore.setPlayList(
-    playListStore.playList.filter((item) => !ids.includes(item))
+    playListStore.playList.filter(
+      (item) => !ids.includes(item)
+    )
   )
   // 获取过滤后的歌曲信息
   await getPlayList().then(async () => {
@@ -289,11 +305,17 @@ onMounted(() => {
       visible.value = false
     }
   }
-  document.addEventListener('visibilitychange', visibilityChangeHandler)
+  document.addEventListener(
+    'visibilitychange',
+    visibilityChangeHandler
+  )
 })
 onBeforeUnmount(() => {
   // 防止内存泄漏
-  document.removeEventListener('visibilitychange', visibilityChangeHandler)
+  document.removeEventListener(
+    'visibilitychange',
+    visibilityChangeHandler
+  )
 })
 
 /* 歌曲列表的标签选择 */
@@ -302,7 +324,9 @@ const loadSrc = ref(null) // 当前歌曲下载路径
 const deleteLikesById = async () => {
   state.value = !state.value
   userStore.setLikeSongsId(
-    userStore.likeSongsId.filter((item) => playAudio.value !== item)
+    userStore.likeSongsId.filter(
+      (item) => playAudio.value !== item
+    )
   )
   await delUserLikeSongId([playAudio.value])
 } // 删除喜欢
@@ -319,8 +343,13 @@ const addLikesById = async () => {
 } // 添加喜欢
 // 顺序播放
 const orderPlay = () => {
-  const index = playListStore.playList.indexOf(playAudio.value)
-  if (index === playListStore.playList.length - 1 && isPlayEnd.value) {
+  const index = playListStore.playList.indexOf(
+    playAudio.value
+  )
+  if (
+    index === playListStore.playList.length - 1 &&
+    isPlayEnd.value
+  ) {
     toggleMusicPlay()
   } else {
     playAudio.value = playListStore.playList[index + 1]
@@ -334,8 +363,13 @@ const singleLoop = () => {
 }
 // 列表循环
 const listLoop = () => {
-  const index = playListStore.playList.indexOf(playAudio.value)
-  if (index === playListStore.playList.length - 1 && isPlayEnd.value) {
+  const index = playListStore.playList.indexOf(
+    playAudio.value
+  )
+  if (
+    index === playListStore.playList.length - 1 &&
+    isPlayEnd.value
+  ) {
     playAudio.value = playListStore.playList[0]
   } else {
     playAudio.value = playListStore.playList[index + 1]
@@ -347,13 +381,19 @@ const randomPlay = () => {
   if (psRandom.length === playListStore.playList.length) {
     psRandom = []
   }
-  let randomIndex = Math.floor(Math.random() * playListStore.playList.length)
+  let randomIndex = Math.floor(
+    Math.random() * playListStore.playList.length
+  )
   // 如果当前播放的音频是随机选择的音频，则重新生成随机索引
   while (
-    psRandom.includes(playListStore.playList[randomIndex]) &&
+    psRandom.includes(
+      playListStore.playList[randomIndex]
+    ) &&
     playAudio.value !== playListStore.playList[randomIndex]
   ) {
-    randomIndex = Math.floor(Math.random() * playListStore.playList.length)
+    randomIndex = Math.floor(
+      Math.random() * playListStore.playList.length
+    )
   }
   playAudio.value = playListStore.playList[randomIndex]
   psRandom.push(playAudio.value)
@@ -386,9 +426,12 @@ const selectPlayMethod = (e) => {
 // 监控歌曲播完后的事件执行
 watchEffect(() => {
   loadSrc.value =
-    playList.value.find((song) => song.song_id === playAudio.value)
-      ?.song_originSrc || ''
-  likeSong.value = userStore.likeSongsId.includes(playAudio.value)
+    playList.value.find(
+      (song) => song.song_id === playAudio.value
+    )?.song_originSrc || ''
+  likeSong.value = userStore.likeSongsId.includes(
+    playAudio.value
+  )
   if (isPlayEnd.value) {
     playFunction()
     isPlayEnd.value = false
@@ -402,18 +445,33 @@ watchEffect(() => {
   }
 })
 // 最后给歌曲增加播放量
-watch([playAudio, musicPlay], async (newVlaue, oldValue) => {
-  if (newVlaue[1] && newVlaue[0] !== oldValue[0])
-    await addSongPlayCount(newVlaue[0])
-})
+watch(
+  [playAudio, musicPlay],
+  async (newVlaue, oldValue) => {
+    if (newVlaue[1] && newVlaue[0] !== oldValue[0])
+      await addSongPlayCount(newVlaue[0])
+  }
+)
 </script>
 
 <template>
   <div class="container">
-    <audio ref="audioPlayer" @timeupdate="updateTime" :src="songSrc" />
+    <audio
+      ref="audioPlayer"
+      @timeupdate="updateTime"
+      :src="songSrc"
+    />
     <div class="top">
-      <p>{{ userStore.user.user_nick || userStore.user.user_name }}</p>
-      <el-avatar :size="50" :src="userStore.user.user_picSrc"></el-avatar>
+      <p>
+        {{
+          userStore.user.user_nick ||
+          userStore.user.user_name
+        }}
+      </p>
+      <el-avatar
+        :size="50"
+        :src="userStore.user.user_picSrc"
+      ></el-avatar>
     </div>
     <div class="main">
       <div class="all">
@@ -472,8 +530,12 @@ watch([playAudio, musicPlay], async (newVlaue, oldValue) => {
       </div>
       <div class="progress-bar">
         <div class="info">
-          <p class="text">{{ songName }} - {{ singerName }}</p>
-          <p class="time">{{ currentTime }} / {{ totalTime }}</p>
+          <p class="text">
+            {{ songName }} - {{ singerName }}
+          </p>
+          <p class="time">
+            {{ currentTime }} / {{ totalTime }}
+          </p>
         </div>
         <div class="bar">
           <el-slider
@@ -553,6 +615,28 @@ watch([playAudio, musicPlay], async (newVlaue, oldValue) => {
           :href="loadSrc"
           target="_blank"
         ></a>
+        <span
+          class="iconfont icon-24gl-volumeHigh"
+          style="font-weight: bolder"
+          title="音量调节"
+          v-show="audioSound > 0"
+        ></span>
+        <span
+          class="iconfont icon-24gl-volumeDisable"
+          style="font-weight: bolder"
+          title="音量调节"
+          v-show="audioSound <= 0"
+        ></span>
+        <div class="slider">
+          <p>{{ audioSound }}</p>
+          <el-slider
+            v-model="audioSound"
+            vertical
+            height="50px"
+            :show-tooltip="false"
+            @input="changeVolume"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -715,6 +799,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
 
       .iconfont {
         display: block;
@@ -730,6 +815,41 @@ body {
 
         &.active {
           color: #31c27c;
+        }
+      }
+
+      .icon-24gl-volumeHigh:hover ~ .slider,
+      .icon-24gl-volumeDisable:hover ~ .slider {
+        visibility: visible;
+      }
+
+      .slider {
+        position: absolute;
+        top: -25px;
+        left: 290px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        visibility: hidden;
+
+        p {
+          color: gray;
+          text-align: center;
+        }
+
+        :deep(.el-slider) {
+          --el-slider-height: 4px;
+          --el-slider-button-size: 12px;
+
+          margin-top: 5px;
+
+          .el-slider__button {
+            margin-left: -2px;
+          }
+        }
+
+        &:hover {
+          visibility: visible;
         }
       }
     }
