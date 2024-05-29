@@ -12,6 +12,9 @@ export const setupTabJump = () => {
     playListStore.setPlayMode(
       JSON.parse(localStorage.getItem('vu3_music_playList')).playMode
     )
+    playListStore.setVolume(
+      JSON.parse(localStorage.getItem('vu3_music_playList')).volume
+    )
   }
 
   onMounted(() => {
