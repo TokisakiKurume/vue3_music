@@ -12,9 +12,7 @@ export const usePlayListStore = defineStore(
     const addDataToTop = (id) => {
       if (Array.isArray(id)) {
         // 过滤出不在 playList 中的 id
-        playList.value = playList.value.filter(
-          (item) => !id.includes(item)
-        )
+        playList.value = playList.value.filter((item) => !id.includes(item))
         // 将不重复的 id 插入到 playList 的开头
         playList.value.unshift(...id)
       } else {

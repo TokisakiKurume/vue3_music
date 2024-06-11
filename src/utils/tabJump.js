@@ -15,6 +15,7 @@ export const setupTabJump = () => {
     playListStore.setVolume(
       JSON.parse(localStorage.getItem('vu3_music_playList')).volume
     )
+    console.log(JSON.parse(localStorage.getItem('vu3_music_playList')).volume)
   }
 
   onMounted(() => {
